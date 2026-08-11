@@ -44,14 +44,21 @@
         .btn-cerrar-aviso{background:#eee;color:#666;}
         .btn-cerrar-aviso:hover{background:#ddd;}
 
-        .scroll-header{position:absolute;top:0;left:0;width:100%;padding:10px 0;z-index:999;transition:all .5s;}
+        .scroll-header{position:absolute;top:0;left:0;width:100%;padding:10px 15px;z-index:999;transition:all .5s;display:flex;align-items:center;justify-content:space-between;}
         .scroll-header.scrolled-header{position:fixed;background:rgba(30,30,30,.92);border-bottom:2px solid #ffbd2f;}
-        .scrollin-logo{float:left;padding:10px 17px;}
-        .logo-title{font-family:Righteous,cursive;font-size:28px;font-weight:bold;color:#fff;}
-        .scrolling-menu{float:right;padding-right:15px;}
+        .scrollin-logo{padding:10px 0;}
+        .logo-title{font-family:Righteous,cursive;font-size:24px;font-weight:bold;color:#fff;}
+
         .scrolling-menu ul li{display:inline-block;padding:16px 12px;}
         .scrolling-menu ul li a{color:#fff;font-weight:bold;text-transform:uppercase;font-size:14px;letter-spacing:1px;transition:color .3s;}
         .scrolling-menu ul li a:hover{color:#ffbd2f;}
+
+        .btn-menu-movil{display:none;background:linear-gradient(135deg,#ffbd2f,#ff9500);color:#000;border:none;padding:8px 12px;border-radius:8px;font-size:20px;cursor:pointer;}
+        .menu-movil-lista{display:none;position:absolute;top:100%;left:0;width:100%;background:rgba(20,20,20,.98);border-top:2px solid #ffbd2f;flex-direction:column;}
+        .menu-movil-lista.abierto{display:flex;}
+        .menu-movil-lista li{width:100%;padding:12px 20px;border-bottom:1px solid rgba(255,255,255,.1);}
+        .menu-movil-lista li a{display:block;width:100%;color:#fff;font-weight:bold;text-transform:uppercase;}
+        .menu-movil-lista li a:hover{color:#ffbd2f;padding-left:5px;}
 
         .ventana-lateral{position:fixed;top:70px;left:-350px;width:350px;height:520px;background:#fff;z-index:998;transition:left .4s ease;box-shadow:4px 0 20px rgba(0,0,0,.25);border-radius:0 10px 10px 0;overflow:hidden;border:3px solid #ffbd2f;}
         .ventana-lateral.abierta{left:0;}
@@ -74,7 +81,9 @@
         .indicador-vivo i{animation: parpadeo 1s infinite;}
         @keyframes parpadeo{0%,100%{opacity:1;}50%{opacity:0.3;}}
 
-        .top-bar-social{margin-top:30px;}
+        /* ✅ COMPARTIR CON TEXTO ARRIBA */
+        .compartir-seccion{margin-top:30px;}
+        .texto-compartir{color:#ffbd2f;font-size:15px;font-weight:bold;margin-bottom:10px;letter-spacing:0.5px;}
         .top-bar-social li{display:inline-block;margin:0 5px;}
         .top-bar-social a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;color:#fff;font-size:16px;transition:all .3s;}
         .top-bar-social a:hover{transform:scale(1.15);box-shadow:0 0 15px rgba(255,189,47,.5);}
@@ -143,8 +152,8 @@
         .info-ubicacion p{color:#666;font-size:15px;line-height:1.8;}
         .info-ubicacion strong{color:#ffbd2f;}
 
-        /* ✅ REPRODUCTOR CON COLOR DE RADIOS UNIDAS, TEXTO VERDE PARPADEANDO */
-        .reproductor-fijo-final{position:fixed;bottom:0;left:0;width:100%;background:linear-gradient(90deg,#ffc107,#ffb300,#ff9800);padding:10px 15px;display:flex;align-items:center;justify-content:center;gap:20px;z-index:9999;border-top:3px solid #b8860b;box-shadow:0 -3px 15px rgba(255,179,0,0.4);}
+        /* ✅ REPRODUCTOR: BOTÓN A LA IZQUIERDA PRIMERO */
+        .reproductor-fijo-final{position:fixed;bottom:0;left:0;width:100%;background:linear-gradient(90deg,#ffc107,#ffb300,#ff9800);padding:10px 15px;display:flex;align-items:center;gap:15px;z-index:9999;border-top:3px solid #b8860b;box-shadow:0 -3px 15px rgba(255,179,0,0.4);margin:0 !important;}
         .texto-radio{display:flex;flex-direction:column;gap:2px;}
         .texto-radio h5{font-family:Righteous,cursive;font-size:16px;color:#1a1a1a;letter-spacing:0.5px;}
         .texto-radio p{font-size:13px;color:#22c55e;animation: palpitar 1.8s ease-in-out infinite;font-weight:600;}
@@ -152,15 +161,14 @@
             0%,100%{opacity:1;transform:scale(1);}
             50%{opacity:0.65;transform:scale(1.03);}
         }
-        .boton-play-fijo{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#b8860b,#daa520,#ffd700);border:2px solid #8b5a00;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;position:relative;transition:all .3s;box-shadow:0 0 15px rgba(218,165,32,0.6);}
+        .boton-play-fijo{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#b8860b,#daa520,#ffd700);border:2px solid #8b5a00;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;position:relative;transition:all .3s;box-shadow:0 0 15px rgba(218,165,32,0.6);flex-shrink:0;}
         .boton-play-fijo:hover{transform:scale(1.1);box-shadow:0 0 25px rgba(255,215,0,0.9);}
         .boton-play-fijo.activo:after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid transparent;border-top-color:#fff;border-right-color:#ffd700;animation: girarBrillo 1s linear infinite;}
         @keyframes girarBrillo{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
 
         #audioStream{display:none;}
 
-        /* ✅ PIE DE PÁGINA PEGADO AL REPRODUCTOR SIN BORDE BLANCO */
-        footer{background:linear-gradient(180deg,#1a1a2e,#0f0f1a);color:#fff;padding:20px 15px;text-align:center;margin-bottom:0;border-top:none;}
+        footer{background:linear-gradient(180deg,#1a1a2e,#0f0f1a);color:#fff;padding:20px 15px;text-align:center;margin-bottom:0 !important;border-top:none !important;}
         footer h3{font-family:Righteous,cursive;font-size:24px;margin-bottom:10px;}
         footer p{color:#aaa;margin-bottom:8px;}
         footer p strong{color:#ffbd2f;}
@@ -170,15 +178,18 @@
 
         @media(max-width:768px){
             .scrolling-menu{display:none;}
-            .scrollin-logo{float:none;text-align:center;display:block;}
+            .btn-menu-movil{display:block;}
+            .scrollin-logo{padding:5px 0;}
+            .logo-title{font-size:20px;}
             .boton-ventana{top:60px;}
             .ventana-lateral{top:60px;}
             .botones-flotantes{bottom:80px;right:12px;}
             .boton-flotante{width:48px;height:48px;font-size:18px;}
-            .reproductor-fijo-final{padding:8px 12px;gap:12px;}
+            .reproductor-fijo-final{padding:8px 12px;gap:10px;}
             .texto-radio h5{font-size:14px;}
             .texto-radio p{font-size:12px;}
             .boton-play-fijo{width:46px;height:46px;font-size:18px;}
+            .texto-compartir{font-size:14px;}
         }
     </style>
 </head>
@@ -241,14 +252,25 @@
     <div class="scrollin-logo">
         <span class="logo-title">RADIO SANTA ROSA</span>
     </div>
+
     <nav class="scrolling-menu">
         <ul>
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#nosotros">Nosotros</a></li>
             <li><a href="#programacion">Programación</a></li>
             <li><a href="#ubicacion">Ubicación</a></li>
+            <li><a href="#instalar-app">📲 Instalar App</a></li>
         </ul>
     </nav>
+
+    <button class="btn-menu-movil" onclick="toggleMenuMovil()"><i class="fa fa-bars"></i></button>
+    <ul class="menu-movil-lista" id="menuMovil">
+        <li><a href="#inicio" onclick="toggleMenuMovil()">Inicio</a></li>
+        <li><a href="#nosotros" onclick="toggleMenuMovil()">Nosotros</a></li>
+        <li><a href="#programacion" onclick="toggleMenuMovil()">Programación</a></li>
+        <li><a href="#ubicacion" onclick="toggleMenuMovil()">Ubicación</a></li>
+        <li><a href="#instalar-app" onclick="toggleMenuMovil()">📲 Instalar Aplicación</a></li>
+    </ul>
 </header>
 
 <section id="inicio">
@@ -283,13 +305,17 @@ MRP.insert({
 </script>
             </center>
 
-            <ul class="top-bar-social">
-                <li><a href="javascript:compartir('facebook');" class="facebook" title="Compartir en Facebook"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="javascript:compartir('twitter');" class="twitter" title="Compartir en Twitter"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="javascript:compartir('instagram');" class="instagram" title="Compartir en Instagram"><i class="fa fa-instagram"></i></a></li>
-                <li><a href="javascript:compartir('whatsapp');" class="whatsapp" title="Compartir en WhatsApp"><i class="fa fa-whatsapp"></i></a></li>
-                <li><a href="javascript:compartir('tiktok');" class="tiktok" title="Compartir en TikTok"><i class="fa fa-music"></i></a></li>
-            </ul>
+            <!-- ✅ COMPARTIR CON TEXTO -->
+            <div class="compartir-seccion">
+                <p class="texto-compartir">📢 Comparte con tus amigos</p>
+                <ul class="top-bar-social">
+                    <li><a href="javascript:compartir('facebook');" class="facebook" title="Compartir en Facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="javascript:compartir('twitter');" class="twitter" title="Compartir en Twitter"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="javascript:compartir('instagram');" class="instagram" title="Compartir en Instagram"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="javascript:compartir('whatsapp');" class="whatsapp" title="Compartir en WhatsApp"><i class="fa fa-whatsapp"></i></a></li>
+                    <li><a href="javascript:compartir('tiktok');" class="tiktok" title="Compartir en TikTok"><i class="fa fa-music"></i></a></li>
+                </ul>
+            </div>
         </div>
         <div class="slide-in"><div class="pointer"></div></div>
     </div>
@@ -315,8 +341,8 @@ MRP.insert({
             <p>Radio Santa Rosa nace con el sueño de llevar alegría, música y compañía a cada hogar.</p>
         </div>
 
-        <!-- ✅ TARJETA NUEVA APARTE: INSTALAR APLICACIÓN -->
-        <div class="tarjeta">
+        <!-- ✅ SECCIÓN CON ID PARA IR DIRECTO -->
+        <div class="tarjeta" id="instalar-app">
             <h3><i class="fa fa-mobile"></i> INSTALA NUESTRA APLICACIÓN</h3>
             <p>Ten nuestra radio siempre a mano en tu celular como si fuera una app oficial. Haz clic en el logo y sigue los pasos sencillos.</p>
             <img src="imagen/logo.png" alt="Instalar Radio Santa Rosa" class="logo-instalar-tarjeta" onclick="iniciarInstalacion()" title="Haz clic para instalar la aplicación">
@@ -358,7 +384,6 @@ MRP.insert({
     </div>
 </section>
 
-<!-- 📌 PIE DE PÁGINA -->
 <footer>
     <h3>RADIO SANTA ROSA</h3>
     <p>&copy; 2026 Todos los derechos reservados</p>
@@ -366,15 +391,14 @@ MRP.insert({
     <p>Contacto: <strong>930 282 895</strong></p>
 </footer>
 
-<!-- ✅ REPRODUCTOR FINAL -->
 <div class="reproductor-fijo-final">
+    <button class="boton-play-fijo" id="botonPlay" onclick="togglePlay()" title="Reproducir / Pausar">
+        <i class="fa fa-play" id="iconoPlay"></i>
+    </button>
     <div class="texto-radio">
         <h5>RADIO SANTA ROSA</h5>
         <p>📡 TRANSMISIÓN EN VIVO</p>
     </div>
-    <button class="boton-play-fijo" id="botonPlay" onclick="togglePlay()" title="Reproducir / Pausar">
-        <i class="fa fa-play" id="iconoPlay"></i>
-    </button>
 </div>
 
 <audio id="audioStream" preload="none">
@@ -384,6 +408,9 @@ MRP.insert({
 <script>
     document.addEventListener('contextmenu', e => {e.preventDefault();return false;});
     document.onkeydown = e => {if([123,85,83].includes(e.keyCode) || (e.ctrlKey && e.shiftKey && e.keyCode==73))return false;};
+
+    function toggleMenuMovil(){$('#menuMovil').toggleClass('abierto');}
+    $(document).click(e=>{if(!$(e.target).closest('.scroll-header').length)$('#menuMovil').removeClass('abierto');});
 
     function actualizarFechaHora(){
         const ahora = new Date();
@@ -411,11 +438,8 @@ MRP.insert({
     document.getElementById('btnInstalar').onclick=()=>{instalador?.prompt();document.getElementById('overlayInstalar').classList.remove('activo');};
     function cerrarAvisoInstalar(){document.getElementById('overlayInstalar').classList.remove('activo');}
     function iniciarInstalacion(){
-        if(instalador){
-            instalador.prompt();
-        }else{
-            alert('Si usas Chrome o navegador similar, busca la opción "Instalar aplicación" en el menú de tu navegador 📱');
-        }
+        if(instalador){instalador.prompt();}
+        else{alert('Si usas Chrome o navegador similar, busca la opción "Instalar aplicación" en el menú de tu navegador 📱');}
     }
 
     $(window).scroll(()=>{$('.scroll-header').toggleClass('scrolled-header',$(this).scrollTop()>50);});
@@ -448,22 +472,13 @@ MRP.insert({
     const botonPlay=$('#botonPlay'), iconoPlay=$('#iconoPlay');
 
     function actualizarBoton(){
-        if(audio.paused){
-            botonPlay.removeClass('activo');
-            iconoPlay.removeClass('fa-pause').addClass('fa-play');
-        }else{
-            botonPlay.addClass('activo');
-            iconoPlay.removeClass('fa-play').addClass('fa-pause');
-        }
+        if(audio.paused){botonPlay.removeClass('activo');iconoPlay.removeClass('fa-pause').addClass('fa-play');}
+        else{botonPlay.addClass('activo');iconoPlay.removeClass('fa-play').addClass('fa-pause');}
     }
 
     function togglePlay(){
-        if(audio.paused){
-            audio.play().then(actualizarBoton);
-        }else{
-            audio.pause();
-            actualizarBoton();
-        }
+        if(audio.paused){audio.play().then(actualizarBoton);}
+        else{audio.pause();actualizarBoton();}
     }
 
     $(document).click(e=>{
