@@ -10,7 +10,7 @@
     <meta name="keywords" content="Radio Santa Rosa, Trujillo, Angasmarca, radio en vivo, emisora peruana">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://hipolitovalverde.blogspot.com/">
-    <link rel="icon" href="https://i.imgur.com/qO44MH6.png">
+    <link rel="icon" href="imagen/logo.png">
     <meta property="og:url" content="https://hipolitovalverde.blogspot.com/">
     <meta property="og:title" content="Radio Santa Rosa">
     <meta property="og:description" content="Radio Online - Trujillo, Angasmarca">
@@ -20,14 +20,14 @@
     <meta name="theme-color" content="#ffbd2f">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="apple-touch-icon" href="https://i.imgur.com/qO44MH6.png">
+    <link rel="apple-touch-icon" href="imagen/logo.png">
 
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700%7CMontserrat:400,500,600,700%7CRighteous" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <style>
         *{margin:0;padding:0;box-sizing:border-box;user-select:none;-webkit-user-select:none;}
-        html{overflow-x:hidden;scroll-behavior:smooth;padding-bottom:70px;}
+        html{overflow-x:hidden;scroll-behavior:smooth;padding-bottom:75px;}
         body{font-family:Montserrat,sans-serif;font-size:14px;line-height:21px;color:#2e2e2e;background:#fff;}
         a{text-decoration:none;color:inherit;}
         img{max-width:100%;height:auto;display:block;}
@@ -53,7 +53,7 @@
         .scrolling-menu ul li a{color:#fff;font-weight:bold;text-transform:uppercase;font-size:14px;letter-spacing:1px;transition:color .3s;}
         .scrolling-menu ul li a:hover{color:#ffbd2f;}
 
-        .ventana-lateral{position:fixed;top:70px;left:-350px;width:350px;height:520px;background:#fff;z-index:998;transition:left .4s ease;box-shadow:4px 0 20px rgba(0,0,0,.25);border-radius:0 10px 10px 0;overflow:hidden;border:2px solid #ffbd2f;}
+        .ventana-lateral{position:fixed;top:70px;left:-350px;width:350px;height:520px;background:#fff;z-index:998;transition:left .4s ease;box-shadow:4px 0 20px rgba(0,0,0,.25);border-radius:0 10px 10px 0;overflow:hidden;border:3px solid #ffbd2f;}
         .ventana-lateral.abierta{left:0;}
         .boton-ventana{position:fixed;top:70px;left:0;background:linear-gradient(135deg,#ffbd2f,#ff9500);color:#000;padding:15px 10px;z-index:999;cursor:pointer;border-radius:0 10px 10px 0;font-weight:bold;writing-mode:vertical-rl;transition:left .4s ease,transform .3s;letter-spacing:1px;}
         .boton-ventana.movido{left:350px;}
@@ -90,7 +90,7 @@
         @keyframes scroll{0%,20%{transform:translateY(0);opacity:1;}100%{transform:translateY(22px);opacity:0;}}
         @keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
 
-        .botones-flotantes{position:fixed;bottom:80px;right:20px;z-index:997;display:flex;flex-direction:column;gap:12px;}
+        .botones-flotantes{position:fixed;bottom:85px;right:20px;z-index:997;display:flex;flex-direction:column;gap:12px;}
         .boton-flotante{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;cursor:pointer;transition:all .3s;box-shadow:0 4px 15px rgba(0,0,0,.3);position:relative;border:2px solid rgba(255,255,255,.3);}
         .boton-flotante:hover{transform:scale(1.15);box-shadow:0 6px 20px rgba(0,0,0,.4);}
         .boton-flotante .etiqueta{position:absolute;right:65px;background:rgba(0,0,0,.85);color:#fff;padding:6px 12px;border-radius:6px;font-size:12px;white-space:nowrap;opacity:0;transition:opacity .2s;pointer-events:none;font-weight:500;}
@@ -105,7 +105,7 @@
             .ventana-chat, .ventana-asistente{top:50%;left:50%;transform:translate(-50%,-50%);width:420px;height:600px;background:#fff;box-shadow:0 15px 50px rgba(0,0,0,.5);}
         }
         @media(max-width:768px){
-            .ventana-chat, .ventana-asistente{bottom:100px;right:10px;left:10px;width:auto;height:65vh;background:#fff;}
+            .ventana-chat, .ventana-asistente{bottom:105px;right:10px;left:10px;width:auto;height:65vh;background:#fff;}
         }
         .cabecera-chat{background:linear-gradient(135deg,#25d266,#128c7e);color:#fff;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;font-weight:bold;font-size:15px;}
         .cerrar-chat{cursor:pointer;font-size:24px;transition:transform .3s;background:rgba(255,255,255,.2);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
@@ -131,6 +131,9 @@
         .tarjeta h3 i{color:#ffbd2f;font-size:26px;}
         .tarjeta p{color:#666;line-height:1.7;text-align:justify;}
 
+        .logo-instalar-tarjeta{display:block;width:120px;margin:15px auto 0;cursor:pointer;transition:transform .3s;border-radius:10px;box-shadow:0 3px 10px rgba(0,0,0,0.15);}
+        .logo-instalar-tarjeta:hover{transform:scale(1.08);box-shadow:0 5px 15px rgba(255,189,47,0.3);}
+
         .mapa-contenedor{border-radius:15px;overflow:hidden;box-shadow:0 5px 25px rgba(0,0,0,.15);border:4px solid #ffbd2f;height:450px;}
         .mapa-contenedor iframe{width:100%;height:100%;border:none;}
         .btn-ruta{display:block;width:fit-content;margin:20px auto;padding:12px 30px;background:linear-gradient(135deg,#ea4335,#fbbc05);color:#fff;border-radius:25px;font-weight:bold;text-decoration:none;transition:all .3s;}
@@ -140,24 +143,24 @@
         .info-ubicacion p{color:#666;font-size:15px;line-height:1.8;}
         .info-ubicacion strong{color:#ffbd2f;}
 
-        /* ✅ REPRODUCTOR FIJO, COMPACTO Y PALPITANDO */
-        .reproductor-fijo-final{position:fixed;bottom:0;left:0;width:100%;background:linear-gradient(90deg,#ffc107,#ffb300,#ff9800);padding:10px 15px;display:flex;align-items:center;justify-content:center;gap:20px;z-index:9999;border-top:2px solid #b8860b;box-shadow:0 -3px 15px rgba(255,179,0,0.35);}
+        /* ✅ REPRODUCTOR CON COLOR DE RADIOS UNIDAS, TEXTO VERDE PARPADEANDO */
+        .reproductor-fijo-final{position:fixed;bottom:0;left:0;width:100%;background:linear-gradient(90deg,#ffc107,#ffb300,#ff9800);padding:10px 15px;display:flex;align-items:center;justify-content:center;gap:20px;z-index:9999;border-top:3px solid #b8860b;box-shadow:0 -3px 15px rgba(255,179,0,0.4);}
         .texto-radio{display:flex;flex-direction:column;gap:2px;}
         .texto-radio h5{font-family:Righteous,cursive;font-size:16px;color:#1a1a1a;letter-spacing:0.5px;}
-        .texto-radio p{font-size:13px;color:#4a3a00;animation: palpitar 1.8s ease-in-out infinite;}
+        .texto-radio p{font-size:13px;color:#22c55e;animation: palpitar 1.8s ease-in-out infinite;font-weight:600;}
         @keyframes palpitar{
             0%,100%{opacity:1;transform:scale(1);}
-            50%{opacity:0.75;transform:scale(1.03);}
+            50%{opacity:0.65;transform:scale(1.03);}
         }
-        .boton-play-fijo{width:45px;height:45px;border-radius:50%;background:linear-gradient(135deg,#b8860b,#daa520,#ffd700);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;position:relative;transition:all .3s;box-shadow:0 0 12px rgba(218,165,32,0.5);}
-        .boton-play-fijo:hover{transform:scale(1.1);box-shadow:0 0 22px rgba(255,215,0,0.8);}
-        /* ✅ BRILLO GIRANDO AL REPRODUCIR */
-        .boton-play-fijo.activo:after{content:"";position:absolute;inset:-3px;border-radius:50%;border:2px solid transparent;border-top-color:#fff;border-right-color:#ffd700;animation: girarBrillo 1s linear infinite;}
+        .boton-play-fijo{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#b8860b,#daa520,#ffd700);border:2px solid #8b5a00;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;position:relative;transition:all .3s;box-shadow:0 0 15px rgba(218,165,32,0.6);}
+        .boton-play-fijo:hover{transform:scale(1.1);box-shadow:0 0 25px rgba(255,215,0,0.9);}
+        .boton-play-fijo.activo:after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid transparent;border-top-color:#fff;border-right-color:#ffd700;animation: girarBrillo 1s linear infinite;}
         @keyframes girarBrillo{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
 
         #audioStream{display:none;}
 
-        footer{background:linear-gradient(180deg,#1a1a2e,#0f0f1a);color:#fff;padding:25px 15px;text-align:center;}
+        /* ✅ PIE DE PÁGINA PEGADO AL REPRODUCTOR SIN BORDE BLANCO */
+        footer{background:linear-gradient(180deg,#1a1a2e,#0f0f1a);color:#fff;padding:20px 15px;text-align:center;margin-bottom:0;border-top:none;}
         footer h3{font-family:Righteous,cursive;font-size:24px;margin-bottom:10px;}
         footer p{color:#aaa;margin-bottom:8px;}
         footer p strong{color:#ffbd2f;}
@@ -170,12 +173,12 @@
             .scrollin-logo{float:none;text-align:center;display:block;}
             .boton-ventana{top:60px;}
             .ventana-lateral{top:60px;}
-            .botones-flotantes{bottom:75px;right:12px;}
+            .botones-flotantes{bottom:80px;right:12px;}
             .boton-flotante{width:48px;height:48px;font-size:18px;}
             .reproductor-fijo-final{padding:8px 12px;gap:12px;}
             .texto-radio h5{font-size:14px;}
             .texto-radio p{font-size:12px;}
-            .boton-play-fijo{width:40px;height:40px;font-size:16px;}
+            .boton-play-fijo{width:46px;height:46px;font-size:18px;}
         }
     </style>
 </head>
@@ -311,6 +314,13 @@ MRP.insert({
             <h3><i class="fa fa-history"></i> Nuestra Historia</h3>
             <p>Radio Santa Rosa nace con el sueño de llevar alegría, música y compañía a cada hogar.</p>
         </div>
+
+        <!-- ✅ TARJETA NUEVA APARTE: INSTALAR APLICACIÓN -->
+        <div class="tarjeta">
+            <h3><i class="fa fa-mobile"></i> INSTALA NUESTRA APLICACIÓN</h3>
+            <p>Ten nuestra radio siempre a mano en tu celular como si fuera una app oficial. Haz clic en el logo y sigue los pasos sencillos.</p>
+            <img src="imagen/logo.png" alt="Instalar Radio Santa Rosa" class="logo-instalar-tarjeta" onclick="iniciarInstalacion()" title="Haz clic para instalar la aplicación">
+        </div>
     </div>
 </section>
 
@@ -356,7 +366,7 @@ MRP.insert({
     <p>Contacto: <strong>930 282 895</strong></p>
 </footer>
 
-<!-- ✅ REPRODUCTOR FIJO, COMPACTO Y PALPITANDO -->
+<!-- ✅ REPRODUCTOR FINAL -->
 <div class="reproductor-fijo-final">
     <div class="texto-radio">
         <h5>RADIO SANTA ROSA</h5>
@@ -397,9 +407,16 @@ MRP.insert({
     }
 
     let instalador;
-    window.addEventListener('beforeinstallprompt', e=>{e.preventDefault();instalador=e;document.getElementById('overlayInstalar').classList.add('activo');});
+    window.addEventListener('beforeinstallprompt', e=>{e.preventDefault();instalador=e;});
     document.getElementById('btnInstalar').onclick=()=>{instalador?.prompt();document.getElementById('overlayInstalar').classList.remove('activo');};
-    function cerrarAviso(){document.getElementById('overlayInstalar').classList.remove('activo');}
+    function cerrarAvisoInstalar(){document.getElementById('overlayInstalar').classList.remove('activo');}
+    function iniciarInstalacion(){
+        if(instalador){
+            instalador.prompt();
+        }else{
+            alert('Si usas Chrome o navegador similar, busca la opción "Instalar aplicación" en el menú de tu navegador 📱');
+        }
+    }
 
     $(window).scroll(()=>{$('.scroll-header').toggleClass('scrolled-header',$(this).scrollTop()>50);});
     $('a[href^="#"]').click(function(e){e.preventDefault();$('html,body').animate({scrollTop:$(this.getAttribute('href')).offset().top-80},800);});
