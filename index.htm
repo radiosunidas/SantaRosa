@@ -27,8 +27,8 @@
     
     <style>
         *{margin:0;padding:0;box-sizing:border-box;user-select:none;-webkit-user-select:none;}
-        html{overflow-x:hidden;scroll-behavior:smooth;}
-        body{font-family:Montserrat,sans-serif;font-size:14px;line-height:21px;color:#2e2e2e;background:#fff;padding-bottom:95px;}
+        html{overflow-x:hidden;scroll-behavior:smooth;padding-bottom:70px;}
+        body{font-family:Montserrat,sans-serif;font-size:14px;line-height:21px;color:#2e2e2e;background:#fff;}
         a{text-decoration:none;color:inherit;}
         img{max-width:100%;height:auto;display:block;}
         ul{list-style:none;}
@@ -67,7 +67,6 @@
         .highlight{color:#ffbd2f;}
         .header-subtitle{color:#fff;font-size:18px;margin-bottom:15px;}
 
-        /* ✅ FECHA Y HORA REDISEÑADAS: VERTICAL, ELEGANTE, EN CUADRO */
         .contenedor-fecha-hora{display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:25px;}
         .fecha-texto{color:#fff;font-size:17px;font-weight:500;letter-spacing:1px;}
         .hora-cuadro{background:linear-gradient(135deg,#ffbd2f,#ff9500);color:#000;padding:10px 22px;border-radius:8px;font-family:Righteous,cursive;font-size:26px;font-weight:bold;letter-spacing:2px;box-shadow:0 0 15px rgba(255,189,47,.4);border:2px solid rgba(255,255,255,.3);}
@@ -91,7 +90,7 @@
         @keyframes scroll{0%,20%{transform:translateY(0);opacity:1;}100%{transform:translateY(22px);opacity:0;}}
         @keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
 
-        .botones-flotantes{position:fixed;bottom:100px;right:20px;z-index:997;display:flex;flex-direction:column;gap:12px;}
+        .botones-flotantes{position:fixed;bottom:80px;right:20px;z-index:997;display:flex;flex-direction:column;gap:12px;}
         .boton-flotante{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;cursor:pointer;transition:all .3s;box-shadow:0 4px 15px rgba(0,0,0,.3);position:relative;border:2px solid rgba(255,255,255,.3);}
         .boton-flotante:hover{transform:scale(1.15);box-shadow:0 6px 20px rgba(0,0,0,.4);}
         .boton-flotante .etiqueta{position:absolute;right:65px;background:rgba(0,0,0,.85);color:#fff;padding:6px 12px;border-radius:6px;font-size:12px;white-space:nowrap;opacity:0;transition:opacity .2s;pointer-events:none;font-weight:500;}
@@ -106,7 +105,7 @@
             .ventana-chat, .ventana-asistente{top:50%;left:50%;transform:translate(-50%,-50%);width:420px;height:600px;background:#fff;box-shadow:0 15px 50px rgba(0,0,0,.5);}
         }
         @media(max-width:768px){
-            .ventana-chat, .ventana-asistente{bottom:160px;right:10px;left:10px;width:auto;height:65vh;background:#fff;}
+            .ventana-chat, .ventana-asistente{bottom:100px;right:10px;left:10px;width:auto;height:65vh;background:#fff;}
         }
         .cabecera-chat{background:linear-gradient(135deg,#25d266,#128c7e);color:#fff;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;font-weight:bold;font-size:15px;}
         .cerrar-chat{cursor:pointer;font-size:24px;transition:transform .3s;background:rgba(255,255,255,.2);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
@@ -141,23 +140,26 @@
         .info-ubicacion p{color:#666;font-size:15px;line-height:1.8;}
         .info-ubicacion strong{color:#ffbd2f;}
 
-        /* ✅ REPRODUCTOR FIJO: GARANTIZADO, NO DESAPARECE */
-        .reproductor-fijo{position:fixed !important;bottom:0 !important;left:0 !important;width:100% !important;background:linear-gradient(90deg,#1a1a2e,#16213e,#0f3460);z-index:995 !important;padding:12px 20px !important;display:flex !important;align-items:center !important;justify-content:space-between !important;box-shadow:0 -4px 20px rgba(0,0,0,.4) !important;border-top:3px solid #ffbd2f !important;}
-        .info-radio{display:flex;align-items:center;gap:15px;color:#fff;}
-        .info-radio i{font-size:28px;color:#ffbd2f;animation:pulse 2s infinite;}
-        @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.2);}}
-        .info-radio h4{font-family:Righteous,cursive;font-size:18px;}
-        .info-radio span{font-size:12px;color:#aaa;}
-        .controles-reproductor{display:flex;align-items:center;gap:15px;}
-        .boton-play{width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,#ffbd2f,#ff9500);color:#000;border:none;font-size:20px;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,.3);box-shadow:0 0 12px rgba(255,189,47,.4);}
-        .boton-play:hover{transform:scale(1.1);box-shadow:0 0 20px rgba(255,189,47,.6);}
-        .boton-play.activo{background:linear-gradient(135deg,#25d266,#128c7e);color:#fff;}
+        /* ✅ REPRODUCTOR FIJO, COMPACTO Y PALPITANDO */
+        .reproductor-fijo-final{position:fixed;bottom:0;left:0;width:100%;background:linear-gradient(90deg,#ffc107,#ffb300,#ff9800);padding:10px 15px;display:flex;align-items:center;justify-content:center;gap:20px;z-index:9999;border-top:2px solid #b8860b;box-shadow:0 -3px 15px rgba(255,179,0,0.35);}
+        .texto-radio{display:flex;flex-direction:column;gap:2px;}
+        .texto-radio h5{font-family:Righteous,cursive;font-size:16px;color:#1a1a1a;letter-spacing:0.5px;}
+        .texto-radio p{font-size:13px;color:#4a3a00;animation: palpitar 1.8s ease-in-out infinite;}
+        @keyframes palpitar{
+            0%,100%{opacity:1;transform:scale(1);}
+            50%{opacity:0.75;transform:scale(1.03);}
+        }
+        .boton-play-fijo{width:45px;height:45px;border-radius:50%;background:linear-gradient(135deg,#b8860b,#daa520,#ffd700);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;position:relative;transition:all .3s;box-shadow:0 0 12px rgba(218,165,32,0.5);}
+        .boton-play-fijo:hover{transform:scale(1.1);box-shadow:0 0 22px rgba(255,215,0,0.8);}
+        /* ✅ BRILLO GIRANDO AL REPRODUCIR */
+        .boton-play-fijo.activo:after{content:"";position:absolute;inset:-3px;border-radius:50%;border:2px solid transparent;border-top-color:#fff;border-right-color:#ffd700;animation: girarBrillo 1s linear infinite;}
+        @keyframes girarBrillo{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
 
         #audioStream{display:none;}
 
-        footer{background:linear-gradient(180deg,#1a1a2e,#0f0f1a);color:#fff;padding:25px 15px 95px;text-align:center;}
+        footer{background:linear-gradient(180deg,#1a1a2e,#0f0f1a);color:#fff;padding:25px 15px;text-align:center;}
         footer h3{font-family:Righteous,cursive;font-size:24px;margin-bottom:10px;}
-        footer p{color:#aaa;margin-bottom:15px;}
+        footer p{color:#aaa;margin-bottom:8px;}
         footer p strong{color:#ffbd2f;}
         .footer-redes{margin:15px 0;}
         .footer-redes a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;margin:0 5px;font-size:15px;transition:all .3s;}
@@ -168,10 +170,12 @@
             .scrollin-logo{float:none;text-align:center;display:block;}
             .boton-ventana{top:60px;}
             .ventana-lateral{top:60px;}
-            .botones-flotantes{bottom:95px;right:12px;}
+            .botones-flotantes{bottom:75px;right:12px;}
             .boton-flotante{width:48px;height:48px;font-size:18px;}
-            .info-radio h4{font-size:14px;}
-            .info-radio span{display:none;}
+            .reproductor-fijo-final{padding:8px 12px;gap:12px;}
+            .texto-radio h5{font-size:14px;}
+            .texto-radio p{font-size:12px;}
+            .boton-play-fijo{width:40px;height:40px;font-size:16px;}
         }
     </style>
 </head>
@@ -250,7 +254,6 @@
             <h1>RADIO <span class="highlight">SANTA ROSA</span></h1>
             <p class="header-subtitle">📻 Tu señal de Trujillo - Angasmarca para el mundo</p>
 
-            <!-- ✅ FECHA Y HORA: VERTICAL, SEPARADA, EN CUADRO -->
             <div class="contenedor-fecha-hora">
                 <div class="fecha-texto" id="fechaTexto"></div>
                 <div class="hora-cuadro" id="horaCuadro"></div>
@@ -345,52 +348,43 @@ MRP.insert({
     </div>
 </section>
 
+<!-- 📌 PIE DE PÁGINA -->
 <footer>
     <h3>RADIO SANTA ROSA</h3>
-    <p>&copy; 2026 Todos los derechos reservados<br>
-    Desarrollado por: <strong>José Cutire</strong><br>
-    Contacto: <strong>930 282 895</strong></p>
+    <p>&copy; 2026 Todos los derechos reservados</p>
+    <p>Desarrollado por: <strong>José Cutire</strong></p>
+    <p>Contacto: <strong>930 282 895</strong></p>
 </footer>
+
+<!-- ✅ REPRODUCTOR FIJO, COMPACTO Y PALPITANDO -->
+<div class="reproductor-fijo-final">
+    <div class="texto-radio">
+        <h5>RADIO SANTA ROSA</h5>
+        <p>📡 TRANSMISIÓN EN VIVO</p>
+    </div>
+    <button class="boton-play-fijo" id="botonPlay" onclick="togglePlay()" title="Reproducir / Pausar">
+        <i class="fa fa-play" id="iconoPlay"></i>
+    </button>
+</div>
 
 <audio id="audioStream" preload="none">
     <source src="https://streamlive2.hearthis.at:8080/11428957.ogg" type="audio/ogg">
 
-<!-- ✅ REPRODUCTOR FIJO: ASEGURADO, NO SE MUEVE NI DESAPARECE -->
-<div class="reproductor-fijo">
-    <div class="info-radio">
-        <i class="fa fa-rss"></i>
-        <div>
-            <h4>RADIO SANTA ROSA</h4>
-            <span>🔴 EN VIVO - Trujillo, Angasmarca</span>
-        </div>
-    </div>
-    <div class="controles-reproductor">
-        <button class="boton-play" id="botonPlay" onclick="togglePlay()" title="Reproducir/Pausar">
-            <i class="fa fa-play" id="iconoPlay"></i>
-        </button>
-    </div>
-</div>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
-    // PROTECCIÓN
     document.addEventListener('contextmenu', e => {e.preventDefault();return false;});
     document.onkeydown = e => {if([123,85,83].includes(e.keyCode) || (e.ctrlKey && e.shiftKey && e.keyCode==73))return false;};
 
-    // ✅ FECHA Y HORA FORMATEADA CLARA
     function actualizarFechaHora(){
         const ahora = new Date();
-        // Fecha en letras clara
         const opcionesFecha = {weekday:'long',day:'numeric',month:'long',year:'numeric'};
         document.getElementById('fechaTexto').textContent = ahora.toLocaleDateString('es-PE', opcionesFecha).toUpperCase();
-        // HORA EN CUADRO
         const opcionesHora = {hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true};
         document.getElementById('horaCuadro').textContent = ahora.toLocaleTimeString('es-PE', opcionesHora);
     }
     actualizarFechaHora();
     setInterval(actualizarFechaHora, 1000);
 
-    // COMPARTIR
     const LINK = encodeURIComponent('https://hipolitovalverde.blogspot.com/');
     const TEXTO = encodeURIComponent('📻 Escucha Radio Santa Rosa en vivo - Angasmarca Trujillo:');
     function compartir(red){
@@ -402,13 +396,11 @@ MRP.insert({
         window.open(url,'_blank','width=550,height=350');
     }
 
-    // INSTALAR APP
     let instalador;
     window.addEventListener('beforeinstallprompt', e=>{e.preventDefault();instalador=e;document.getElementById('overlayInstalar').classList.add('activo');});
     document.getElementById('btnInstalar').onclick=()=>{instalador?.prompt();document.getElementById('overlayInstalar').classList.remove('activo');};
     function cerrarAviso(){document.getElementById('overlayInstalar').classList.remove('activo');}
 
-    // SCROLL Y MENÚS
     $(window).scroll(()=>{$('.scroll-header').toggleClass('scrolled-header',$(this).scrollTop()>50);});
     $('a[href^="#"]').click(function(e){e.preventDefault();$('html,body').animate({scrollTop:$(this.getAttribute('href')).offset().top-80},800);});
 
@@ -417,7 +409,6 @@ MRP.insert({
     function toggleAsistente(){$('#ventanaAsistente').toggleClass('abierta');}
     function irUbicacion(){$('html,body').animate({scrollTop:$('#ubicacion').offset().top-80},800);}
 
-    // ASISTENTE WHATSAPP
     let cont=0;
     const cel='51930282895';
     function enviarMensaje(){
@@ -436,15 +427,28 @@ MRP.insert({
         },700);
     }
 
-    // REPRODUCTOR
     const audio=document.getElementById('audioStream');
-    function togglePlay(){
-        const b=$('#botonPlay'),i=$('#iconoPlay');
-        if(audio.paused){audio.play().then(()=>{b.addClass('activo');i.removeClass('fa-play').addClass('fa-pause');});}
-        else {audio.pause();b.removeClass('activo');i.removeClass('fa-pause').addClass('fa-play');}
+    const botonPlay=$('#botonPlay'), iconoPlay=$('#iconoPlay');
+
+    function actualizarBoton(){
+        if(audio.paused){
+            botonPlay.removeClass('activo');
+            iconoPlay.removeClass('fa-pause').addClass('fa-play');
+        }else{
+            botonPlay.addClass('activo');
+            iconoPlay.removeClass('fa-play').addClass('fa-pause');
+        }
     }
 
-    // CERRAR AL TOCAR FUERA
+    function togglePlay(){
+        if(audio.paused){
+            audio.play().then(actualizarBoton);
+        }else{
+            audio.pause();
+            actualizarBoton();
+        }
+    }
+
     $(document).click(e=>{
         if(!$(e.target).closest('.ventana-lateral,.boton-ventana').length)$('#ventanaLateral,#botonVentana').removeClass('abierta movido');
         if(!$(e.target).closest('.ventana-chat,.btn-chat').length)$('#ventanaChat').removeClass('abierta');
