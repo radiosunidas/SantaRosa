@@ -634,7 +634,7 @@
     <meta name="keywords" content="Radio Santa Rosa, Trujillo, Angasmarca, radio en vivo, emisora peruana">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://hipolitovalverde.blogspot.com/">
-    <link rel="icon" href="imagen/logo.png">
+    <link rel="icon" href="imagen/192_logo.png">
     <meta property="og:url" content="https://hipolitovalverde.blogspot.com/">
     <meta property="og:title" content="Radio Santa Rosa">
     <meta property="og:description" content="Radio Online - Trujillo, Angasmarca">
@@ -644,7 +644,7 @@
     <meta name="theme-color" content="#ffbd2f">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="apple-touch-icon" href="imagen/logo.png">
+    <link rel="apple-touch-icon" href="imagen/192_logo.png">
 
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700%7CMontserrat:400,500,600,700%7CRighteous" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -657,8 +657,8 @@
         img{max-width:100%;height:auto;display:block;}
         ul{list-style:none;}
 
-        .overlay-instalar{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);z-index:2000;align-items:center;justify-content:center;}
-        .overlay-instalar.activo{display:flex;}
+        .overlay-instalar{display:flex;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);z-index:2000;align-items:center;justify-content:center;}
+        .overlay-instalar.oculto{display:none;}
         .aviso-instalar{background:#fff;padding:25px;border-radius:15px;text-align:center;max-width:320px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,.4);}
         .aviso-instalar h4{font-family:Righteous,cursive;font-size:20px;color:#333;margin-bottom:15px;}
         .aviso-instalar p{color:#666;margin-bottom:20px;font-size:14px;}
@@ -691,12 +691,35 @@
         .boton-ventana:hover{transform:scale(1.05);}
         .ventana-lateral iframe{width:100%;height:100%;border:none;}
 
-        #header-wrapper{position:relative;padding:140px 20px 100px;text-align:center;background:url(imagen/angasmarca.jpg) no-repeat center center/cover fixed;min-height:100vh;display:flex;align-items:center;justify-content:center;}
+        #header-wrapper{position:relative;padding:140px 20px 100px;text-align:center;background:url(https://i.ytimg.com/vi/NdUaxYLYK1o/maxresdefault.jpg) no-repeat center center/cover fixed;min-height:100vh;display:flex;align-items:center;justify-content:center;}
         #header-wrapper:before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.45);}
         #header{position:relative;z-index:2;}
         #header h1{font-family:Righteous,cursive;font-size:clamp(32px, 6vw, 56px);color:#fff;text-transform:uppercase;margin-bottom:10px;line-height:1.3;}
         .highlight{color:#ffbd2f;}
         .header-subtitle{color:#fff;font-size:18px;margin-bottom:15px;}
+
+        /* ?? REPRODUCTOR: COLOR PATITO AL FIJARSE */
+        .reproductor-inicial{background:linear-gradient(90deg,#ffc107,#ffb300,#ff9800);padding:12px 20px;display:flex;align-items:center;gap:15px;justify-content:center;border-radius:12px;max-width:500px;margin:25px auto;border:2px solid #b8860b;transition:all .4s ease;box-shadow:0 4px 15px rgba(255,179,0,0.3);}
+        .reproductor-fijo{position:fixed !important;bottom:0 !important;left:0 !important;max-width:100% !important;border-radius:0 !important;margin:0 !important;border:none !important;
+        /* ?? COLOR PATITO CATERPILLAR MUY RESALTANTE */
+        background:linear-gradient(90deg,#ffd300,#ffcc00,#ffb700) !important;
+        border-top:3px solid #e6ac00 !important;
+        box-shadow:0 -4px 20px rgba(255,211,0,0.5) !important;
+        width:100%;z-index:9999;}
+
+        .texto-radio{display:flex;flex-direction:column;gap:2px;}
+        .texto-radio h5{font-family:Righteous,cursive;font-size:16px;color:#1a1a1a;letter-spacing:0.5px;}
+        .texto-radio p{font-size:13px;color:#22c55e;animation: palpitar 1.8s ease-in-out infinite;font-weight:600;}
+        @keyframes palpitar{
+            0%,100%{opacity:1;transform:scale(1);}
+            50%{opacity:0.65;transform:scale(1.03);}
+        }
+        .boton-play-fijo{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#b8860b,#daa520,#ffd700);border:2px solid #8b5a00;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;position:relative;transition:all .3s;box-shadow:0 0 15px rgba(218,165,32,0.6);flex-shrink:0;}
+        .boton-play-fijo:hover{transform:scale(1.1);box-shadow:0 0 25px rgba(255,215,0,0.9);}
+        .boton-play-fijo.activo:after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid transparent;border-top-color:#fff;border-right-color:#ffd700;animation: girarBrillo 1s linear infinite;}
+        @keyframes girarBrillo{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+
+        #audioStream{display:none;}
 
         .contenedor-fecha-hora{display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:25px;}
         .fecha-texto{color:#fff;font-size:17px;font-weight:500;letter-spacing:1px;}
@@ -705,7 +728,6 @@
         .indicador-vivo i{animation: parpadeo 1s infinite;}
         @keyframes parpadeo{0%,100%{opacity:1;}50%{opacity:0.3;}}
 
-        /* ? COMPARTIR CON TEXTO ARRIBA */
         .compartir-seccion{margin-top:30px;}
         .texto-compartir{color:#ffbd2f;font-size:15px;font-weight:bold;margin-bottom:10px;letter-spacing:0.5px;}
         .top-bar-social li{display:inline-block;margin:0 5px;}
@@ -776,44 +798,27 @@
         .info-ubicacion p{color:#666;font-size:15px;line-height:1.8;}
         .info-ubicacion strong{color:#ffbd2f;}
 
-        /* ? REPRODUCTOR: BOTÓN A LA IZQUIERDA PRIMERO */
-        .reproductor-fijo-final{position:fixed;bottom:0;left:0;width:100%;background:linear-gradient(90deg,#ffc107,#ffb300,#ff9800);padding:10px 15px;display:flex;align-items:center;gap:15px;z-index:9999;border-top:3px solid #b8860b;box-shadow:0 -3px 15px rgba(255,179,0,0.4);margin:0 !important;}
-        .texto-radio{display:flex;flex-direction:column;gap:2px;}
-        .texto-radio h5{font-family:Righteous,cursive;font-size:16px;color:#1a1a1a;letter-spacing:0.5px;}
-        .texto-radio p{font-size:13px;color:#22c55e;animation: palpitar 1.8s ease-in-out infinite;font-weight:600;}
-        @keyframes palpitar{
-            0%,100%{opacity:1;transform:scale(1);}
-            50%{opacity:0.65;transform:scale(1.03);}
-        }
-        .boton-play-fijo{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#b8860b,#daa520,#ffd700);border:2px solid #8b5a00;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;position:relative;transition:all .3s;box-shadow:0 0 15px rgba(218,165,32,0.6);flex-shrink:0;}
-        .boton-play-fijo:hover{transform:scale(1.1);box-shadow:0 0 25px rgba(255,215,0,0.9);}
-        .boton-play-fijo.activo:after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid transparent;border-top-color:#fff;border-right-color:#ffd700;animation: girarBrillo 1s linear infinite;}
-        @keyframes girarBrillo{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
-
-        #audioStream{display:none;}
-
-        footer{background:linear-gradient(180deg,#1a1a2e,#0f0f1a);color:#fff;padding:20px 15px;text-align:center;margin-bottom:0 !important;border-top:none !important;}
-        footer h3{font-family:Righteous,cursive;font-size:24px;margin-bottom:10px;}
-        footer p{color:#aaa;margin-bottom:8px;}
+        /* ?? PIE DE PÁGINA AJUSTADO: SIN LÍNEA BLANCA */
+        footer{background:linear-gradient(180deg,#1a1a2e,#0f0f1a);color:#fff;padding:15px 15px 8px;text-align:center;margin-bottom:0 !important;border-top:none !important;}
+        footer h3{font-family:Righteous,cursive;font-size:22px;margin-bottom:8px;}
+        footer p{color:#aaa;margin-bottom:5px;font-size:13px;}
         footer p strong{color:#ffbd2f;}
-        .footer-redes{margin:15px 0;}
+        .footer-redes{margin:10px 0;}
         .footer-redes a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;margin:0 5px;font-size:15px;transition:all .3s;}
         .footer-redes a:hover{transform:translateY(-3px);}
 
         @media(max-width:768px){
+            html{padding-bottom:60px;}
             .scrolling-menu{display:none;}
             .btn-menu-movil{display:block;}
             .scrollin-logo{padding:5px 0;}
             .logo-title{font-size:20px;}
             .boton-ventana{top:60px;}
             .ventana-lateral{top:60px;}
-            .botones-flotantes{bottom:80px;right:12px;}
+            .botones-flotantes{bottom:70px;right:12px;}
             .boton-flotante{width:48px;height:48px;font-size:18px;}
-            .reproductor-fijo-final{padding:8px 12px;gap:10px;}
-            .texto-radio h5{font-size:14px;}
-            .texto-radio p{font-size:12px;}
-            .boton-play-fijo{width:46px;height:46px;font-size:18px;}
             .texto-compartir{font-size:14px;}
+            .reproductor-inicial{max-width:90%;padding:10px 15px;}
         }
     </style>
 </head>
@@ -832,7 +837,7 @@
     <i class="fa fa-radio" style="font-size:20px;margin-bottom:8px;"></i> RADIOS UNIDAS
 </div>
 <div class="ventana-lateral" id="ventanaLateral">
-    <iframe src="https://radiosunidas.github.io/play" title="Radios Unidas"></iframe>
+    <iframe src="https://radiosunidas.github.io/play?autoplay=false" title="Radios Unidas" allow="autoplay 'none'"></iframe>
 </div>
 
 <div class="botones-flotantes">
@@ -864,7 +869,7 @@
         <span class="cerrar-chat" onclick="toggleAsistente()">&times;</span>
     </div>
     <div class="cuerpo-asistente" id="cuerpoAsistente">
-        <div class="mensaje mensaje-bot">?? ¡Hola! Bienvenido a Radio Santa Rosa ??<br>Soy tu asistente virtual.<br>Te invito a instalar nuestra aplicación para escucharnos cuando quieras y volver siempre. ¿En qué te ayudo?</div>
+        <div class="mensaje mensaje-bot">?? ¡Hola! Bienvenido a Radio Santa Rosa ??<br>Soy tu asistente virtual.<br>Te invito a instalar nuestra aplicación para escucharnos cuando quieras. ¿En qué te ayudo?</div>
     </div>
     <div class="entrada-asistente">
         <input type="text" id="textoAsistente" placeholder="Escribe tu mensaje..." onkeypress="if(event.keyCode==13) enviarMensaje()">
@@ -908,28 +913,17 @@
                 <div class="hora-cuadro" id="horaCuadro"></div>
                 <div class="indicador-vivo"><i class="fa fa-circle"></i> EN TRANSMISIÓN</div>
             </div>
-            
-            <center>
-<script type="text/javascript" src="https://hosted.muses.org/mrp.js"></script>
-<script type="text/javascript">
-MRP.insert({
-'url':'https://streamlive2.hearthis.at:8080/11575041.ogg',
-'codec':'mp3',
-'volume':100,
-'autoplay':true,
-'jsevents':true,
-'buffering':0,
-'title':'RADIO SANTA ROSA EN VIVO Las 24 Hrs a full Hipólito valverde',
-'welcome':'HIPOLITO VALVERDE',
-'wmode':'transparent',
-'skin':'miniradio',
-'width':275,
-'height':112
-});
-</script>
-            </center>
 
-            <!-- ? COMPARTIR CON TEXTO -->
+            <div class="reproductor-inicial" id="reproductorDinamico">
+                <button class="boton-play-fijo" id="botonPlay" onclick="togglePlay()" title="Reproducir / Pausar">
+                    <i class="fa fa-play" id="iconoPlay"></i>
+                </button>
+                <div class="texto-radio">
+                    <h5>RADIO SANTA ROSA</h5>
+                    <p>?? TRANSMISIÓN EN VIVO</p>
+                </div>
+            </div>
+
             <div class="compartir-seccion">
                 <p class="texto-compartir">?? Comparte con tus amigos</p>
                 <ul class="top-bar-social">
@@ -965,11 +959,10 @@ MRP.insert({
             <p>Radio Santa Rosa nace con el sueño de llevar alegría, música y compañía a cada hogar.</p>
         </div>
 
-        <!-- ? SECCIÓN CON ID PARA IR DIRECTO -->
         <div class="tarjeta" id="instalar-app">
             <h3><i class="fa fa-mobile"></i> INSTALA NUESTRA APLICACIÓN</h3>
             <p>Ten nuestra radio siempre a mano en tu celular como si fuera una app oficial. Haz clic en el logo y sigue los pasos sencillos.</p>
-            <img src="imagen/logo.png" alt="Instalar Radio Santa Rosa" class="logo-instalar-tarjeta" onclick="iniciarInstalacion()" title="Haz clic para instalar la aplicación">
+            <img src="imagen/512_logo.png" alt="Instalar Radio Santa Rosa" class="logo-instalar-tarjeta" onclick="iniciarInstalacion()" title="Haz clic para instalar la aplicación">
         </div>
     </div>
 </section>
@@ -983,10 +976,10 @@ MRP.insert({
                 ?? Mejor selección musical<br>
                 ?? Noticias al instante<br>
                 ? Deportes en vivo<br>
-                ?? Locutores profesionales<br>
-                ?? Para toda la familia
+                ??? Locutores profesionales<br>
+                ??????????? Para toda la familia
             </p>
-            <p style="font-size:20px;font-weight:bold;">?? Las 24 horas, los 7 días!</p>
+            <p style="font-size:20px;font-weight:bold;">? Las 24 horas, los 7 días!</p>
         </div>
     </div>
 </section>
@@ -1015,23 +1008,27 @@ MRP.insert({
     <p>Contacto: <strong>930 282 895</strong></p>
 </footer>
 
-<div class="reproductor-fijo-final">
-    <button class="boton-play-fijo" id="botonPlay" onclick="togglePlay()" title="Reproducir / Pausar">
-        <i class="fa fa-play" id="iconoPlay"></i>
-    </button>
-    <div class="texto-radio">
-        <h5>RADIO SANTA ROSA</h5>
-        <p>?? TRANSMISIÓN EN VIVO</p>
-    </div>
-</div>
-
 <audio id="audioStream" preload="none">
     <source src="https://streamlive2.hearthis.at:8080/11575041.ogg" type="audio/ogg">
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
     document.addEventListener('contextmenu', e => {e.preventDefault();return false;});
     document.onkeydown = e => {if([123,85,83].includes(e.keyCode) || (e.ctrlKey && e.shiftKey && e.keyCode==73))return false;};
+
+    // ? EFECTO: REPRODUCTOR SE PEGA AL BAJAR CON COLOR PATITO
+    const reproductor = document.getElementById('reproductorDinamico');
+    const puntoCambio = 350;
+    window.addEventListener('scroll', () => {
+        if(window.scrollY > puntoCambio){
+            reproductor.classList.add('reproductor-fijo');
+            reproductor.classList.remove('reproductor-inicial');
+        }else{
+            reproductor.classList.remove('reproductor-fijo');
+            reproductor.classList.add('reproductor-inicial');
+        }
+    });
 
     function toggleMenuMovil(){$('#menuMovil').toggleClass('abierto');}
     $(document).click(e=>{if(!$(e.target).closest('.scroll-header').length)$('#menuMovil').removeClass('abierto');});
@@ -1058,9 +1055,16 @@ MRP.insert({
     }
 
     let instalador;
-    window.addEventListener('beforeinstallprompt', e=>{e.preventDefault();instalador=e;});
-    document.getElementById('btnInstalar').onclick=()=>{instalador?.prompt();document.getElementById('overlayInstalar').classList.remove('activo');};
-    function cerrarAvisoInstalar(){document.getElementById('overlayInstalar').classList.remove('activo');}
+    window.addEventListener('beforeinstallprompt', e=>{
+        e.preventDefault();
+        instalador=e;
+        setTimeout(()=>{$('#overlayInstalar').removeClass('oculto');}, 1500);
+    });
+    document.getElementById('btnInstalar').onclick=()=>{
+        instalador?.prompt();
+        document.getElementById('overlayInstalar').classList.add('oculto');
+    };
+    function cerrarAvisoInstalar(){document.getElementById('overlayInstalar').classList.add('oculto');}
     function iniciarInstalacion(){
         if(instalador){instalador.prompt();}
         else{alert('Si usas Chrome o navegador similar, busca la opción "Instalar aplicación" en el menú de tu navegador ??');}
@@ -1106,7 +1110,11 @@ MRP.insert({
     }
 
     $(document).click(e=>{
-        if(!$(e.target).closest('.ventana-lateral,.boton-ventana').length)$('#ventanaLateral,#botonVentana').removeClass('abierta movido');
+        if(!$(e.target).closest('.ventana-lateral,.boton-ventana').length){
+            $('#ventanaLateral,#botonVentana').removeClass('abierta movido');
+            const iframe = document.querySelector('#ventanaLateral iframe');
+            if(iframe) iframe.src = iframe.src;
+        }
         if(!$(e.target).closest('.ventana-chat,.btn-chat').length)$('#ventanaChat').removeClass('abierta');
         if(!$(e.target).closest('.ventana-asistente,.btn-asistente').length)$('#ventanaAsistente').removeClass('abierta');
     });
