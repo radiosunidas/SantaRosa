@@ -1087,7 +1087,7 @@
     function irUbicacion(){$('html,body').animate({scrollTop:$('#ubicacion').offset().top-80},800);}
 
     let cont=0;
-    const cel='51930282895';
+    const cel='51989308921';
     function enviarMensaje(){
         const t=$('#textoAsistente').val().trim();
         if(!t)return;
@@ -1097,8 +1097,8 @@
         cont++;
         setTimeout(()=>{
             let r;
-            if(cont<3) r=cont==1?'¡Recuerda instalar la app 📲!':'Vuelve cuando quieras.';
-            else {r='Te paso por WhatsApp 📱';setTimeout(()=>{window.open(`https://wa.me/${cel}?text=Hola desde la web`,'_blank');toggleAsistente();cont=0;},1200);return;}
+            if(cont<3) r=cont==1?'¡Recuerda instalar la app 📲!':'al tercer mensaje mandaremos un wasap al locutor para mandarte saludos en vivo.';
+            else {r='Te paso por WhatsApp 📱';setTimeout(()=>{window.open(`https://wa.me/${cel}?text=Hola desde la web saludos desde la pagina web`,'_blank');toggleAsistente();cont=0;},1200);return;}
             $('#cuerpoAsistente').append(`<div class="mensaje mensaje-bot">${r}</div>`);
             $('#cuerpoAsistente').scrollTop($('#cuerpoAsistente')[0].scrollHeight);
         },700);
