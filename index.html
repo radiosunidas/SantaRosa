@@ -1004,7 +1004,7 @@
     <h3>RADIO SANTA ROSA</h3>
     <p>&copy; 2026 Todos los derechos reservados</p>
     <p>Desarrollado por: <strong>José Cutire</strong></p>
-    <p>Contacto: <strong>930 282 895</strong></p>
+    <p>Contacto: <strong>989 308 021</strong></p>
 </footer>
 
 <audio id="audioStream" preload="none">
@@ -1015,6 +1015,9 @@
 <script>
     document.addEventListener('contextmenu', e => {e.preventDefault();return false;});
     document.onkeydown = e => {if([123,85,83].includes(e.keyCode) || (e.ctrlKey && e.shiftKey && e.keyCode==73))return false;};
+
+    // ✅ DETECCIÓN DE DISPOSITIVO
+    const esMovil = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
     const reproductor = document.getElementById('reproductorDinamico');
     const puntoCambio = 350;
@@ -1054,12 +1057,19 @@
 
     let instalador;
     let yaInstalado = localStorage.getItem('pwa_instalada') === 'si';
-    if(yaInstalado) $('#overlayInstalar').addClass('oculto');
+    
+    // ✅ CORRECCIÓN: No mostrar aviso si ya está instalado o si es móvil (se maneja nativo)
+    if(yaInstalado || esMovil){
+        $('#overlayInstalar').addClass('oculto');
+    }
 
     window.addEventListener('beforeinstallprompt', e=>{
         e.preventDefault();
         instalador=e;
-        if(!yaInstalado) setTimeout(()=>{$('#overlayInstalar').removeClass('oculto');}, 1500);
+        // Solo mostrar en PC y si no está instalado
+        if(!yaInstalado && !esMovil){
+            setTimeout(()=>{$('#overlayInstalar').removeClass('oculto');}, 1500);
+        }
     });
 
     window.addEventListener('appinstalled', ()=>{
@@ -1074,8 +1084,15 @@
     };
     function cerrarAvisoInstalar(){document.getElementById('overlayInstalar').classList.add('oculto');}
     function iniciarInstalacion(){
-        if(instalador){instalador.prompt();}
-        else{alert('Si usas Chrome o navegador similar, busca la opción "Instalar aplicación" en el menú de tu navegador 📲');}
+        if(instalador){
+            instalador.prompt();
+        }else{
+            if(esMovil){
+                alert('📲 En tu celular busca la opción "Instalar" o "Agregar a pantalla de inicio" en el menú de tu navegador');
+            }else{
+                alert('💻 En tu navegador busca la opción "Instalar aplicación" en el menú (Chrome, Edge, etc.)');
+            }
+        }
     }
 
     $(window).scroll(()=>{$('.scroll-header').toggleClass('scrolled-header',$(this).scrollTop()>50);});
@@ -1087,7 +1104,8 @@
     function irUbicacion(){$('html,body').animate({scrollTop:$('#ubicacion').offset().top-80},800);}
 
     let cont=0;
-    const cel='51989308921';
+    // ✅ NÚMERO DE WHATSAPP ACTUALIZADO: 989 308 021
+    const cel='51989308021';
     function enviarMensaje(){
         const t=$('#textoAsistente').val().trim();
         if(!t)return;
@@ -1130,7 +1148,6 @@
 
 </body>
 </html>
-
 
 
 
